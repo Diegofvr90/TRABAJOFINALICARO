@@ -3,11 +3,11 @@ import { FormBuilder } from '@angular/forms';
 
 
 @Component({
-  selector: 'app-reactive-form',
-  templateUrl: './reactive-form.component.html',
-  styleUrls: ['./reactive-form.component.scss']
+  selector: 'app-registro',
+  templateUrl: './registro.component.html',
+  styleUrls: ['./registro.component.scss']
 })
-export class ReactiveFormComponent implements OnInit {
+export class RegistroComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder) { }
 
