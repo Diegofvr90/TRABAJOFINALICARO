@@ -8,6 +8,11 @@ import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { HeaderComponent } from './component/header/header.component';
 import { MemorandosComponent } from './pages/memorandos/memorandos.component';
 import { HomeComponent } from './pages/home/home.component';
+import { CommonModule } from '@angular/common';
+import { RecibidosComponent } from './memorandos/recibidos/recibidos.component';
+import { EnviadosComponent } from './memorandos/enviados/enviados.component';
+import { NuevoMensajeComponent } from './memorandos/nuevo-mensaje/nuevo-mensaje.component';
+
 
 @NgModule({
   declarations: [
@@ -15,12 +20,19 @@ import { HomeComponent } from './pages/home/home.component';
     RegistroComponent,
     HeaderComponent,
     MemorandosComponent,
-    HomeComponent
+    HomeComponent,
+    RecibidosComponent,
+    EnviadosComponent,
+    NuevoMensajeComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,ReactiveFormsModule
+    FormsModule,ReactiveFormsModule,
+    CommonModule,
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]
