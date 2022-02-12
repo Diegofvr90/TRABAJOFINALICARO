@@ -1,6 +1,12 @@
 <h4> Memorandos Internos</h4>
 
-<ul>
-  <li *ngFor="let memorando of memorandos"> {{memorando.description}}</li>
+<div class="botones">
 
-</ul>
+  <button (click)="getEnviados()"> Enviados</button>
+  <button (click)="getRecibidos()"> Recibidos</button>
+  <button (click)="newMensaje()"> Nuevo Mensaje</button>
+
+
+</div>
+
+
