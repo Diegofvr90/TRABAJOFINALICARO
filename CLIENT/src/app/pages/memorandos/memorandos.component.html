@@ -7,6 +7,43 @@
   <button (click)="newMensaje()"> Nuevo Mensaje</button>
 
 
+<div *ngFor="let enviados of enviadosData">
+
+ <table>
+   <tr>
+   <td><strong>Id Usuario</strong></td>
+   <td><strong>Mensaje</strong></td>
+  </tr>
+
+  <tr>
+    <td>{{enviados.id}}</td>
+    <td>{{enviados.text}}</td>
+  </tr>
+</table>
+
 </div>
+
+<div *ngFor="let recibidos of recibidosData">
+
+  <table>
+    <tr>
+    <td><strong>Id_Usuario</strong></td>
+    <td><strong>Mensaje</strong></td>
+   </tr>
+
+   <tr>
+     <td>{{recibidos.id}}</td>
+     <td>{{recibidos.text}}</td>
+   </tr>
+
+
+  </table>
+
+
+</div>
+
+
+
+
 
 

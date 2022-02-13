@@ -14,6 +14,7 @@ export class MemorandosComponent implements OnInit {
 
   enviadosData: any;
   recibidosData: any;
+  text: any;
 
   constructor() {}
 
