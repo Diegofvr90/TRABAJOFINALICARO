@@ -42,7 +42,7 @@ app.get('/users', (req, res) => {
     .catch((e) => console.log('error:', e));
 });
 
-// ● POST /api/users -> Permite la registración de usuarios.
+// ● POST /api/users -> Permite el registro de usuarios.
 
 app.post('/api/users', (req, res) => {
   const { username, firstName, lastName, password, country, city } = req.body;

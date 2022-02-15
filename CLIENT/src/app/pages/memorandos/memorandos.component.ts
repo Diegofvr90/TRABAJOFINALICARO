@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { memorandos } from 'src/app/memorandos.model';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-memorandos',
@@ -16,7 +17,12 @@ export class MemorandosComponent implements OnInit {
   recibidosData: any;
   text: any;
 
-  constructor() {}
+  constructor(private formBuilder: FormBuilder) {}
+
+  enviarForm = this.formBuilder.group({
+    destinatario: '',
+    newMensaje: '',
+  });
 
   ngOnInit(): void {}
 
@@ -30,8 +36,9 @@ export class MemorandosComponent implements OnInit {
     fetch('https://icaro-api-v1.herokuapp.com/api/users/luke.sky/messages/sent')
       .then((res) => res.json())
       .then((data) => {
+        this.recibidosData = [];
         this.enviadosData = data;
-        console.log('data:', data);
+        console.log('enviados:', data);
       });
   }
 
@@ -41,10 +48,28 @@ export class MemorandosComponent implements OnInit {
     )
       .then((res) => res.json())
       .then((data) => {
+        this.enviadosData = [];
         this.recibidosData = data;
-        console.log('data:', data);
+        console.log('recibidos:', data);
       });
   }
 
-  newMensaje() {}
+  newMensaje() {
+    this.enviadosData = [];
+    this.recibidosData = [];
+  }
+
+  submit() {
+    fetch('https://icaro-api-v1.herokuapp.com/api/users/luke.sky/messages', {
+      method: 'POST',
+      body: JSON.stringify({
+        receiverId: this.enviarForm.value.destinatario,
+        text: this.enviarForm.value.newMensaje,
+      }),
+      headers: { 'Content-Type': 'application/json' },
+    })
+      .then((response) => response.json())
+      .then((data) => console.log(data))
+      .catch((e) => console.log('error:', e));
+  }
 }
